@@ -189,6 +189,22 @@ export default {
           });
         });
         user.bestPosition = '';
+        if (!_.isEmpty(this.scores) && !_.isEmpty(user.picks)) {
+          const pick_positions = user.picks.map((pick) => {
+            return {
+              name: pick.name,
+              pos: pick.pos,
+              position: parseInt(pick.pos.replace('T', ''))
+            }
+          });
+          const positionOrder = pick_positions.sort((a, b) => {
+            return a.position - b.position;
+          });
+          if (positionOrder.length > 0) {
+            user.bestPosition = positionOrder[0];
+            //user.bestPosition = `${positionOrder[0].name} (${positionOrder[0].pos})`;
+          }
+        }
         user.totalStrokes = user.picks.reduce((accumulator, pick) => {
           if (pick == null) {
             return accumulator;

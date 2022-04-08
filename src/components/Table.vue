@@ -23,7 +23,7 @@
                             <td>{{ user.name }}</td>
                             <td class="text-center">
                                 <span v-if="user.bestPosition != ''">
-                                    {{ user.bestPosition }}
+                                    {{ user.bestPosition.name }} <v-chip x-small>{{ user.bestPosition.pos }}</v-chip>
                                 </span>
                                 <v-icon v-else>
                                     mdi-minus
@@ -97,7 +97,7 @@ export default {
             search: '',
             headers: [
                 {text: 'Name', value: 'name', width:'160'},
-                {text: 'Best Pos', value: 'bestPosition', align: 'center', width: '100'},
+                {text: 'Best Pos', value: 'bestPosition.position', align: 'center', width: '100'},
                 {text: 'Golfer 1', value: 'picks[0].name', width: '170'},
                 {text: 'Golfer 2', value: 'picks[1].name', width: '170'},
                 //{text: 'Golfer 3', value: 'picks[2].name', width: '170'},
