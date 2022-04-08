@@ -3,7 +3,7 @@ const config = {
     "vuetify"
   ],
   pwa: {
-    name: 'Masters 2021',
+    name: 'Masters 2022',
     themeColor: '#006746',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
